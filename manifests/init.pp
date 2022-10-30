@@ -17,5 +17,5 @@ class gnupg (
   $package_ensure = $gnupg::params::package_ensure,
   $package_name   = $gnupg::params::package_name,
 ) inherits gnupg::params {
-  class {'::gnupg::install': }
+  ensure_packages([$package_name], { ensure => $gnupg::package_ensure })
 }
