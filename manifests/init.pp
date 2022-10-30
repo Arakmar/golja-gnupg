@@ -14,8 +14,8 @@
 # @author Dejan Golja <dejan@golja.org>
 #
 class gnupg (
-  $package_ensure = $gnupg::params::package_ensure,
-  $package_name   = $gnupg::params::package_name,
+  String[1] $package_ensure = 'present',
+  String[1] $package_name = $gnupg::params::package_name,
 ) inherits gnupg::params {
   ensure_packages([$package_name], { ensure => $gnupg::package_ensure })
 }
